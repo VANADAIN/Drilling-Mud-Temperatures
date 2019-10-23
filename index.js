@@ -9,10 +9,7 @@ process.env.NODE_ENV = 'production'
 
 app.on('ready', () => {
 
-    win = new BrowserWindow({
-        width: 1000,
-        height: 700
-    })
+    win = new BrowserWindow({})
 
     win.loadURL(url.format({
         pathname: path.join(__dirname, '/index.html'),
