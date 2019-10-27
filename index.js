@@ -5,7 +5,7 @@ const {app, BrowserWindow, Menu} = require('electron')
 
 let win
 
-process.env.NODE_ENV = 'production'
+// process.env.NODE_ENV = 'production'
 
 app.on('ready', () => {
 
@@ -21,16 +21,16 @@ app.on('ready', () => {
         win = null
     })
 
-    const mainMenu = Menu.buildFromTemplate(mainMenuTemplate)
-    Menu.setApplicationMenu(mainMenu)
+    // const mainMenu = Menu.buildFromTemplate(mainMenuTemplate)
+    // Menu.setApplicationMenu(mainMenu)
 
 })
 
-const mainMenuTemplate = [
-    {
-        label: 'File'
-    }
-]
+// const mainMenuTemplate = [
+//     {
+//         label: 'File'
+//     }
+// ]
 
 app.on('window-all-closed', () => {
     app.quit()

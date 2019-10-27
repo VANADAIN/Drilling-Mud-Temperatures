@@ -1,3 +1,24 @@
+
+
 .form {
-    padding-top: 10px
+    padding-top: 15px;
+}
+
+.form-control{
+    width: 170px;
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+}
+    .form-control:focus {
+        border: 1px solid rgba(31, 32, 65, 0.5);
+        outline: 0;
+        outline-offset: 0; }
+
+.label {
+    padding-bottom: 2px;
+    width: 175px;
 }
