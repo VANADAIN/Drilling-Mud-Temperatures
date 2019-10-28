@@ -22,3 +22,9 @@
     padding-bottom: 2px;
     width: 175px;
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 45px
+}
