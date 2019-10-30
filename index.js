@@ -8,18 +8,21 @@ let win
 // process.env.NODE_ENV = 'production'
 
 app.on('ready', () => {
-
+    
+    // create window
     win = new BrowserWindow({
         width: 1400,
         height: 900
     })
 
+    // render file
     win.loadURL(url.format({
         pathname: path.join(__dirname, '/index.html'),
         prorocol: 'file:',
         slashes: true
     }))
 
+    // close window
     win.on('closed', () => {
         win = null
     })

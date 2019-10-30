@@ -34,7 +34,7 @@
         </div>
     
         <div class="form">
-            <div class="label" for="pwd">Глубина скважины (м):</div>
+            <div class="label" for="pwd">Начальная глубина скважины (м):</div>
             <input 
             class="form-control"
             type="text" 
@@ -201,8 +201,12 @@
 </div>
 
     <script>
+
+        require('./getter.js')
         require('./render.js')
         require('./calculator.js')
+
+
         // ----------  INIT FUNCTION ---------------
         // function sayhello() {
         //     let input = document.getElementById('input').value
