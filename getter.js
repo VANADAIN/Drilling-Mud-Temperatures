@@ -23,3 +23,21 @@ let length = document.getElementById('length').value
 let liquid_type = document.getElementById('liquid_type').value
 
 let density = document.getElementById('density').value
+
+let thermal_capacity = document.getElementById('thermal_capacity').value
+
+let thermal_conductivity = document.getElementById('thermal_conductivity').value
+
+let temperature = document.getElementById('temperature').value
+
+let gradient = document.getElementById('gradient').value
+
+let bt = document.getElementById('bt').value
+
+let start_temperature = document.getElementById('start_temperature').value
+
+let spending = document.getElementById('spending').value
+
+let circulation = document.getElementById('circulation').value
+
+let depth_step = document.getElementById('depth_step').value

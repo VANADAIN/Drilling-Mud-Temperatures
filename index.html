@@ -14,191 +14,133 @@
         Расчет
     </h3>
 
-<div class="grid">
-    
-    <div class="column_1">
-        <div class="form">
-            <div class="label" for="pwd" id="consumption" >Подача промывочной жидкости (л/мин) :</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-    
-        <div class="form">
-            <div class="label" for="pwd" id="diameter" >Диаметр скважины (м) :</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-    
-        <div class="form">
-            <div class="label" for="pwd" id="depth" >Начальная глубина скважины (м):</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-    
-        <div class="form">
-            <div class="label" for="pwd" id="outer_d" >Наружный диаметр БТ:</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-    
-        <div class="form">
-            <div class="label" for="pwd" id="outer_d" >Внутренний диаметр БТ:</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-    
-        <div class="form">
-            <div class="label" for="pwd" id="hydro_shaggily">Гидравлическая шероховатость (м) :</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-    
-        <div class="form">
-            <div class="label" for="pwd" id="connection">Тип соединений бурильной колонны: </div>
+    <div class="grid">
+
+        <div class="column_1">
+            <div class="form">
+                <div class="label" for="pwd" id="consumption">Подача промывочной жидкости (л/мин) :</div>
+                <input class="form-control" type="text" id="input">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" id="diameter">Диаметр скважины (м) :</div>
+                <input class="form-control" type="text" id="input">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" id="depth">Начальная глубина скважины (м):</div>
+                <input class="form-control" type="text" id="input">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" id="outer_d">Наружный диаметр БТ:</div>
+                <input class="form-control" type="text" id="input">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" id="outer_d">Внутренний диаметр БТ:</div>
+                <input class="form-control" type="text" id="input">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" id="hydro_shaggily">Гидравлическая шероховатость (м) :</div>
+                <input class="form-control" type="text" id="input">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" id="connection">Тип соединений бурильной колонны: </div>
                 <ul>
                     <li>1 - Муфтово - замковое</li>
                     <li>2 - Ниппельное</li>
                     <li>3 - ССК</li>
                     <li>4 - КССК</li>
                 </ul>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-    
-        <div class="form">
-            <div class="label" for="pwd" id="channel_d">Диаметр канала в соединениях бурильной колонны:</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-    </div>
+                <input class="form-control" type="text" id="input">
+            </div>
 
-    <!-- ------------------ part 2 -->
-    <div class="column_2">
-
-        <div class="form">
-            <div class="label" for="pwd" id="length">Длина 1 трубы (м) :</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
+            <div class="form">
+                <div class="label" for="pwd" id="channel_d">Диаметр канала в соединениях бурильной колонны:</div>
+                <input class="form-control" type="text" id="input">
+            </div>
         </div>
 
-        <div class="form">
-            <div class="label" for="pwd" id="liquid_type">Тип промывочной жидкости:</div>
-            <ul>
-                <li>1 - Ньютоновская</li>
-                <li>2 - Неньютоновская</li>
-            </ul>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
+        <!-- ------------------ part 2 -->
+        <div class="column_2">
+
+            <div class="form">
+                <div class="label" for="pwd" id="length">Длина 1 трубы (м) :</div>
+                <input class="form-control" type="text" id="input">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" id="liquid_type">Тип промывочной жидкости:</div>
+                <ul>
+                    <li>1 - Ньютоновская</li>
+                    <li>2 - Неньютоновская</li>
+                </ul>
+                <input class="form-control" type="text" id="input">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" id="density">Плотность промывочной жидкости (кг/куб.м):</div>
+                <input class="form-control" type="text" id="input">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" id="thermal_capacity">Удельная теплоемкость горной породы (Дж/кг.К):</div>
+                <input class="form-control" type="text" id="input">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" id="thermal_conductivity">Коэффициент теплопроводности горной породы
+                    (Вт/м.К):</div>
+                <input class="form-control" type="text" id="input">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" id="temperature">Температура горных пород на устье (град.цельсия):</div>
+                <input class="form-control" type="text" id="input">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" id="gradient">Геотермический градиент (град.цельсия/м):</div>
+                <input class="form-control" type="text" id="input">
+            </div>
+
         </div>
 
-        <div class="form">
-            <div class="label" for="pwd" id="density">Плотность промывочной жидкости (кг/куб.м):</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
+        <!----------------------- part 3 -->
+        <div class="column_3">
 
-        <div class="form">
-            <div class="label" for="pwd">Удельная теплоемкость горной породы (Дж/кг.К):</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-        
-        <div class="form">
-            <div class="label" for="pwd">Коэффициент теплопроводности горной породы (Вт/м.К):</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
+            <div class="form">
+                <div class="label" for="pwd" id="bt">Коэф. теплопроводности БТ (Вт/м.К):</div>
+                <input class="form-control" type="text" id="input">
+            </div>
 
-        <div class="form">
-            <div class="label" for="pwd">Температура горных пород на устье (град.цельсия):</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
+            <div class="form">
+                <div class="label" for="pwd" id="start_temperature">Начальная температура промывочной жидкости
+                    (град.цельсия):</div>
+                <input class="form-control" type="text" id="input">
+            </div>
 
-        <div class="form">
-            <div class="label" for="pwd">Геотермический градиент (град.цельсия/м):</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
+            <div class="form">
+                <div class="label" for="pwd" id="spending">Затраты мощности на забое скважины (Вт) :</div>
+                <input class="form-control" type="text" id="input">
+            </div>
 
-    </div>
+            <div class="form">
+                <div class="label" for="pwd" id="circulation">Продолжительность циркуляции (с) :</div>
+                <input class="form-control" type="text" id="input">
+            </div>
 
-    <!----------------------- part 3 -->
-    <div class="column_3">
+            <div class="form">
+                <div class="label" for="pwd" id="depth_step">Шаг глубины для расчета температуры (м) :</div>
+                <input class="form-control" type="text" id="input">
+            </div>
 
-        <div class="form">
-            <div class="label" for="pwd">Коэф. теплопроводности БТ (Вт/м.К):</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-
-        <div class="form">
-            <div class="label" for="pwd">Начальная температура промывочной жидкости (град.цельсия):</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-
-        <div class="form">
-            <div class="label" for="pwd">Затраты мощности на забое скважины (Вт) :</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-
-        <div class="form">
-            <div class="label" for="pwd">Продолжительность циркуляции (с) :</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
-        </div>
-
-        <div class="form">
-            <div class="label" for="pwd">Шаг глубины для расчета температуры (м) :</div>
-            <input 
-            class="form-control"
-            type="text" 
-            id="input">      
         </div>
 
     </div>
-    
-</div>
 
     <script>
 
@@ -210,7 +152,7 @@
         // ----------  INIT FUNCTION ---------------
         // function sayhello() {
         //     let input = document.getElementById('input').value
-            
+
         //     let output = document.getElementById('hello')
         //     output.innerHTML = input
         // }
@@ -218,4 +160,5 @@
     </script>
 
 </body>
+
 </html>
