@@ -18,8 +18,8 @@
 
         <div class="column_1">
             <div class="form">
-                <div class="label" for="pwd" id="consumption">Подача промывочной жидкости (л/мин) :</div>
-                <input class="form-control" type="text" id="input">
+                <div class="label" for="pwd">Подача промывочной жидкости (л/мин) :</div>
+                <input class="form-control" type="text" id="consumption" onkeyup="sayhello()">
             </div>
 
             <div class="form">
@@ -145,24 +145,31 @@
 
         </div>
 
+         <!-- ----------  INIT FUNCTION ---------------
+         function sayhello() {
+             let input = document.getElementById('input').value
+
+            let output = document.getElementById('hello')
+             output.innerHTML = input
+         } -->
+
     </div>
 
     <script>
+        function sayhello() {
+            let input = document.getElementById('consumption').value
 
-        require('./getter.js')
-        require('./render.js')
-        require('./calculator.js')
-
-
-        // ----------  INIT FUNCTION ---------------
-        // function sayhello() {
-        //     let input = document.getElementById('input').value
-
-        //     let output = document.getElementById('hello')
-        //     output.innerHTML = input
-        // }
-
+            let output = document.getElementById('hello')
+            output.innerHTML = input
+        }
     </script>
+
+    <script type="text/javascript" src="./calculator.js"></script>
+
+
+        
+
+    
 
 </body>
 
