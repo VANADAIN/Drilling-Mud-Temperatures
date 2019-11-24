@@ -9,62 +9,62 @@ output.innerHTML = consumption
 
 
 
-// let diameter = document.getElementById('diameter').value
-// let D = diameter
+let diameter = document.getElementById('diameter').value
+let D = diameter
 
-// let depth = document.getElementById('depth').value
-// let H = depth
+let depth = document.getElementById('depth').value
+let H = depth
 
-// let outer_d = document.getElementById('outer_d').value
-// let D1 = outer_d
+let outer_d = document.getElementById('outer_d').value
+let D1 = outer_d
 
-// let inner_d = document.getElementById('inner_d').value
-// let D2 = inner_d
+let inner_d = document.getElementById('inner_d').value
+let D2 = inner_d
 
-// let hydro_shaggily = document.getElementById('hydro_shaggily').value
-// let K = hydro_shaggily
+let hydro_shaggily = document.getElementById('hydro_shaggily').value
+let K = hydro_shaggily
 
-// let connection_type = document.getElementById('connection').value
-// let J = connection_type
+let connection_type = document.getElementById('connection').value
+let J = connection_type
 
-// let channel_d = document.getElementById('channel_d').value
-// let D3 = channel_d
+let channel_d = document.getElementById('channel_d').value
+let D3 = channel_d
 
-// let length = document.getElementById('length').value
-// let L = length
+let length = document.getElementById('length').value
+let L = length
 
-// let liquid_type = document.getElementById('liquid_type').value
-// let J1 = liquid_type
+let liquid_type = document.getElementById('liquid_type').value
+let J1 = liquid_type
 
-// let density = document.getElementById('density').value
-// let R = density
+let density = document.getElementById('density').value
+let R = density
 
-// let thermal_capacity = document.getElementById('thermal_capacity').value
-// let C1 = thermal_capacity
+let thermal_capacity = document.getElementById('thermal_capacity').value
+let C1 = thermal_capacity
 
-// let thermal_conductivity = document.getElementById('thermal_conductivity').value
-// let L1 = thermal_conductivity
+let thermal_conductivity = document.getElementById('thermal_conductivity').value
+let L1 = thermal_conductivity
 
-// let temperature_rock = document.getElementById('temperature').value
-// let T0 = temperature_rock
+let temperature_rock = document.getElementById('temperature').value
+let T0 = temperature_rock
 
-// let gradient = document.getElementById('gradient').value
-// let S = gradient
+let gradient = document.getElementById('gradient').value
+let S = gradient
 
-// let bt = document.getElementById('bt').value
-// let L0 = bt
+let bt = document.getElementById('bt').value
+let L0 = bt
 
-// let start_temperature = document.getElementById('start_temperature').value
-// let T1 = start_temperature
+let start_temperature = document.getElementById('start_temperature').value
+let T1 = start_temperature
 
-// let spending = document.getElementById('spending').value
-// let N3 = spending
+let spending = document.getElementById('spending').value
+let N3 = spending
 
-// let circulation = document.getElementById('circulation').value
-// let T2 = circulation
+let circulation = document.getElementById('circulation').value
+let T2 = circulation
 
-// let depth_step = document.getElementById('depth_step').value
-// let H1 = depth_step
+let depth_step = document.getElementById('depth_step').value
+let H1 = depth_step
 
-// let frequency = document.getElementById('frequency').value
-// let N1 = frequency
+let frequency = document.getElementById('frequency').value
+let N1 = frequency
