@@ -19,7 +19,7 @@
         <div class="column_1">
             <div class="form">
                 <div class="label" for="pwd">Подача промывочной жидкости (л/мин) :</div>
-                <input class="form-control" type="number" id="consumption" onkeyup="sayhello()">
+                <input class="form-control" type="number" id="consumption" onkeyup="calculator()">
             </div>
 
             <div class="form">
@@ -157,13 +157,14 @@
 
     <script>
         function sayhello() {
-            let input = document.getElementById('consumption').value
+            let input = Q
 
             let output = document.getElementById('hello')
             output.innerHTML = input
         }
     </script>
 
+    
     <script type="text/javascript" src="./calculator.js"></script>
 
 
