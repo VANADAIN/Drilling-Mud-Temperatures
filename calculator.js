@@ -36,11 +36,29 @@ function calculator() {
     let density = document.getElementById('density').value
     let R = density
 
+    let structural = document.getElementById('structural').value
+    let N = structural
+
+    let dynamical = document.getElementById('dynamical').value
+    let T = dynamical
+
+    let dynamical_2 = document.getElementById('dynamical_2').value
+    let M = dynamical_2
+
+    let ud_tepl = document.getElementById('ud_tepl').value
+    let C1 = ud_tepl
+
+    let kof_tepl = document.getElementById('kof_tepl').value
+    let L1 = kof_tepl
+
+    let rock_density = document.getElementById('rock_density').value
+    let R2 = rock_density
+
     let thermal_capacity = document.getElementById('thermal_capacity').value
-    let C1 = thermal_capacity
+    let C2 = thermal_capacity
 
     let thermal_conductivity = document.getElementById('thermal_conductivity').value
-    let L1 = thermal_conductivity
+    let L2 = thermal_conductivity
 
     let temperature_rock = document.getElementById('temperature').value
     let T0 = temperature_rock
@@ -143,9 +161,53 @@ function calculator() {
     // потери по длине 
     let P1 = W*(V**2)*R*(H/2*D2)
     // кол-во труб
-    let N4 = Math.round(H/L)
+    let N4 = H/L
     // потери давления в соединениях
     let P2 = E*(V**2)*R*(N4/2)
     // гидравлический уклон
     let I1 = ((P1+P2)/(9.81*R*H)) 
+
+    let D4 = D - D1
+
+
+    //  lambda part 
+
+    if (J == 1) {
+
+        let W1 = (0.3164/(R1**0.25))
+
+    } else {
+
+        if (R1 <= 1200) {
+            let W1 = (14.6/(R1**0.9))
+        }   else {
+            let W = (0.075/(R1**0.125))
+        }
+
+    }
+    // потери в кольцевом пространстве
+    let P3 = W * (V**2) * R * 1.03 * (H/(2*D4))
+    // гидр уклон
+    let I2  = (P3/ (9.81*R* 1.03* H))
+
+    // коэф теплопередачи через стенку трубы
+    let log = (Math.log(D1/D2)/Math.log(10))
+    let K1 = (1/ ( 1/(A1*D1) + 0.5*(log/L0)+(1/(A2*D1)) ) )
+
+    // критерий био
+    let B1 = A2* (D/(2*L2))
+    // температуропроводность
+    let A3 = L2/(C2*R2)
+    // kryteri furie
+    let F3 = A3*T2*(4/(D**2))
+    // koef nestacionarnogo teploobmena
+    let K2 = A2/(1+B1*(F3**0.25))
+    // pryrost t na zaboe
+    let T3 = N3/(G*C1)
+    // koefs
+    let X = K2*(D/2)
+    let X1 = ( (K**2)*((D**2)/4) + K2*K1*D )**0.5
+    let X2 = Pi/(G*C1)
+
+    
 }

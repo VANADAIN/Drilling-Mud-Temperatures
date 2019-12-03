@@ -33,17 +33,17 @@
             </div>
 
             <div class="form">
-                <div class="label" for="pwd" >Наружный диаметр БТ:</div>
+                <div class="label" for="pwd" >Наружный диаметр БТ (м):</div>
                 <input class="form-control" type="number" id="outer_d">
             </div>
 
             <div class="form">
-                <div class="label" for="pwd" >Внутренний диаметр БТ:</div>
+                <div class="label" for="pwd" >Внутренний диаметр БТ (м):</div>
                 <input class="form-control" type="number" id="inner_d">
             </div>
 
             <div class="form">
-                <div class="label" for="pwd" >Гидравлическая шероховатость (м) :</div>
+                <div class="label" for="pwd" >Гидравлическая шероховатость (м):</div>
                 <input class="form-control" type="number" id="hydro_shaggily">
             </div>
 
@@ -59,13 +59,9 @@
             </div>
 
             <div class="form">
-                <div class="label" for="pwd" >Диаметр канала в соединениях бурильной колонны:</div>
+                <div class="label" for="pwd" >Диаметр канала в соединениях бурильной колонны (м):</div>
                 <input class="form-control" type="number" id="channel_d">
             </div>
-        </div>
-
-        <!-- ------------------ part 2 -->
-        <div class="column_2">
 
             <div class="form">
                 <div class="label" for="pwd" >Длина 1 трубы (м) :</div>
@@ -81,9 +77,45 @@
                 <input class="form-control" type="number" id="liquid_type">
             </div>
 
+        </div>
+
+        <!-- ------------------ part 2 -->
+        <div class="column_2">
+
+
             <div class="form">
                 <div class="label" for="pwd" >Плотность промывочной жидкости (кг/куб.м):</div>
                 <input class="form-control" type="number" id="density">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" >Структурная вязкость промывочной жидкости (Па.с):</div>
+                <input class="form-control" type="number" id="structural">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" > Динамическое напряжение сдвига промывочной жидкости (Па):</div>
+                <input class="form-control" type="number" id="dynamical">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" > Коэффициент динамической вязкости промывочной жидкости (Па.с):</div>
+                <input class="form-control" type="number" id="dynamical_2">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" > Удельная теплоемкость промывочной жидкости (Па.с):</div>
+                <input class="form-control" type="number" id="ud_tepl">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" > Коэффициент теплопроводности промывочной жидкости (Па.с):</div>
+                <input class="form-control" type="number" id="kof_tepl">
+            </div>
+
+            <div class="form">
+                <div class="label" for="pwd" >Плотность горной породы (кг/куб.м):</div>
+                <input class="form-control" type="number" id="rock_density">
             </div>
 
             <div class="form">
@@ -139,8 +171,12 @@
             </div>
 
             <div class="form">
-                <div class="label" for="pwd" > Частота вращения бурильной колонны</div>
+                <div class="label" for="pwd" > Частота вращения бурильной колонны (об/мин)</div>
                 <input class="form-control" type="number" id="frequency">
+            </div>
+
+            <div class="form">
+                <button> Расчет </button>
             </div>
 
         </div>
