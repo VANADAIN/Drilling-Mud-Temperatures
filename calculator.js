@@ -209,5 +209,12 @@ function calculator() {
     let X1 = ( (K**2)*((D**2)/4) + K2*K1*D )**0.5
     let X2 = Pi/(G*C1)
 
-    
+    let X4 = K1*X2
+
+    let R3 = X2*(X + X1)
+    let R4 = X2*(X - X1)
+
+    let A4 = (1/X4) * ( S - 9.81 * (T1/C1) )
+    let B = 9.81 * G * (T1 + I2)/(K2*Pi*D)
+
 }
