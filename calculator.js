@@ -217,4 +217,31 @@ function calculator() {
     let A4 = (1/X4) * ( S - 9.81 * (T1/C1) )
     let B = 9.81 * G * (T1 + I2)/(K2*Pi*D)
 
+    let X5 = (R3 * ( 2.718**(R3*H) ) ) - (R3 * ( 2.718**(R3*H) ))
+    let X6 = T1 - T0 + A4 - B
+
+    let M1 = -(X6*R4*2.718**(R4*H) + X4*(A4-T3))/X5
+    let M2 = (X6*R3*2.718**(R4*H) + X4*(A4-T3)*(R3/R4))/X5
+
+    let Q1 = (X6*R3*2.718**(R3*H) + X4*(A4-T3))/X5
+    let Q2 = -(X6*R3*2.718**(R4*H) + X4*(A4-T3)*(R3/R4))/X5
+
+    //final temperatures
+    let T4 = [] 
+    let T5 = [] 
+    let T6 = [] 
+
+    for (var i = 0; i < H; i += H1) {
+
+        var t4 = (M1 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) - A4 + B + T0 + S*i 
+        T4.push(t4)
+
+        var t5 = (M2 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) + B + T0 + S*i 
+        T5.push(t5)
+
+        var t6 = T0 + S*i
+        T6.push(t6)
+
+    }
+
 }
