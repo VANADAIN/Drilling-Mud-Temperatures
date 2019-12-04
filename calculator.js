@@ -3,6 +3,8 @@ function calculator() {
 
     // getter part
 
+    console.log("start")
+
     let consumption = document.getElementById('consumption').value
     let Q = consumption
 
@@ -10,7 +12,7 @@ function calculator() {
     let D = diameter
 
     let depth = document.getElementById('depth').value
-    let H = depth
+    let H = Number(depth)
 
     let outer_d = document.getElementById('outer_d').value
     let D1 = outer_d
@@ -44,6 +46,8 @@ function calculator() {
 
     let dynamical_2 = document.getElementById('dynamical_2').value
     let M = dynamical_2
+
+    console.log('Getting inputs')
 
     let ud_tepl = document.getElementById('ud_tepl').value
     let C1 = ud_tepl
@@ -79,7 +83,7 @@ function calculator() {
     let T2 = circulation
 
     let depth_step = document.getElementById('depth_step').value
-    let H1 = depth_step
+    let H1 = Number(depth_step)
 
     let frequency = document.getElementById('frequency').value
     let N1 = frequency
@@ -226,23 +230,29 @@ function calculator() {
     let Q1 = (X6*R3*2.718**(R3*H) + X4*(A4-T3))/X5
     let Q2 = -(X6*R3*2.718**(R4*H) + X4*(A4-T3)*(R3/R4))/X5
 
+    console.log("calculating temps")
+    console.log(H)
+    console.log(H1)
+    console.log(H+H1)
+
     //final temperatures
-    let T4 = [] 
-    let T5 = [] 
-    let T6 = [] 
+    var T4 = [] 
+    var T5 = [] 
+    var T6 = [] 
 
-    for (var i = 0; i < H; i += H1) {
+    // for (var i = 0; i < H; i = i + H1) {
+    //     console.log("start loop")
+    //     console.log(i)
+    //     var t4 = (M1 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) - A4 + B + T0 + S*i 
+    //     T4.push(t4)
 
-        var t4 = (M1 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) - A4 + B + T0 + S*i 
-        T4.push(t4)
+    //     var t5 = (M2 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) + B + T0 + S*i 
+    //     T5.push(t5)
 
-        var t5 = (M2 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) + B + T0 + S*i 
-        T5.push(t5)
+    //     var t6 = T0 + S*i
+    //     T6.push(t6)
 
-        var t6 = T0 + S*i
-        T6.push(t6)
-
-    }
+    // }
 
     console.log(T4)
     console.log(T5)
