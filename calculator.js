@@ -90,13 +90,13 @@ function calculator() {
 
     // множитель для коэффициента борда и карно 
     if (J == 1) {
-        let a = 2
+        var a = 2
     } else if (J == 2) {
-        let a = 1.5
+        var a = 1.5
     } else if (J == 3) {
-        let a = 0
+        var a = 0
     } else {
-        let a = 0
+        var a = 0
     }
 
     //угловая скорость
@@ -113,29 +113,29 @@ function calculator() {
     // Reynolds part 
 
     // скорость потока
-    let V = Q/(60000*F)
+    let V = Q/(60000*F1)
     // вязкость бингамовской жидкости
-    let M = N + 0.17*T*(D2/V)
+    let m = N + 0.17*T*(D2/V)
     // reynolds
-    let R1 = V*D2*(R/M)
+    let R1 = V*D2*(R/m)
     // прандтль
-    let P = M * (C1/L1)
-
+    let P = m * (C1/L1)
+    
     // теплоотдача
     if (J == 1) {
 
         if (R1 > 2400) {
-            let A0 = 0.021*(R1**0.8)*(P**0.43) * (L1/D2)
+            var A0 = 0.021*(R1**0.8)*(P**0.43) * (L1/D2)
         } else {
-            let A0 = 0.15*(R1**0.33)*(P**0.43) * (L1/D2)
+            var A0 = 0.15*(R1**0.33)*(P**0.43) * (L1/D2)
         }
 
     } else {
 
         if (R1 > 2400) {
-            let A0 = 0.023*(R1**0.8)*(P**0.43) * (L1/D2)
+            var A0 = 0.023*(R1**0.8)*(P**0.43) * (L1/D2)
         } else {
-            let A0 = 0.12*(R1**0.33)*(P**0.43) * (L1/D2)
+            var A0 = 0.12*(R1**0.33)*(P**0.43) * (L1/D2)
         }
 
     }
@@ -149,11 +149,11 @@ function calculator() {
     } else {
 
         if (R1 > 2400) {
-            let W = (0.0075/(R1**0.125))
+            var W = (0.0075/(R1**0.125))
         } else if (R1 > 50000) {
-            let W = 0.02
+            var W = 0.02
         } else {
-            let W = 64/R1
+            var W = 64/R1
         }
 
     }
@@ -192,16 +192,16 @@ function calculator() {
 
     // коэф теплопередачи через стенку трубы
     let log = (Math.log(D1/D2)/Math.log(10))
-    let K1 = (1/ ( 1/(A1*D1) + 0.5*(log/L0)+(1/(A2*D1)) ) )
+    let K1 = (1/ ( 1/(A0*D1) + 0.5*(log/L0)+(1/(A0*D1)) ) )
 
     // критерий био
-    let B1 = A2* (D/(2*L2))
+    let B1 = A0* (D/(2*L2))
     // температуропроводность
     let A3 = L2/(C2*R2)
     // kryteri furie
     let F3 = A3*T2*(4/(D**2))
     // koef nestacionarnogo teploobmena
-    let K2 = A2/(1+B1*(F3**0.25))
+    let K2 = A0/(1+B1*(F3**0.25))
     // pryrost t na zaboe
     let T3 = N3/(G*C1)
     // koefs
@@ -243,5 +243,9 @@ function calculator() {
         T6.push(t6)
 
     }
+
+    console.log(T4)
+    console.log(T5)
+    console.log(T6)
 
 }

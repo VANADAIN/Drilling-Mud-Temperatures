@@ -19,7 +19,7 @@
         <div class="column_1">
             <div class="form">
                 <div class="label" for="pwd">Подача промывочной жидкости (л/мин) :</div>
-                <input class="form-control" type="number" id="consumption" onkeyup="calculator()">
+                <input class="form-control" type="number" id="consumption" >
             </div>
 
             <div class="form">
@@ -104,12 +104,12 @@
             </div>
 
             <div class="form">
-                <div class="label" for="pwd" > Удельная теплоемкость промывочной жидкости (Па.с):</div>
+                <div class="label" for="pwd" > Удельная теплоемкость промывочной жидкости (Дж/кг.К):</div>
                 <input class="form-control" type="number" id="ud_tepl">
             </div>
 
             <div class="form">
-                <div class="label" for="pwd" > Коэффициент теплопроводности промывочной жидкости (Па.с):</div>
+                <div class="label" for="pwd" > Коэффициент теплопроводности промывочной жидкости (Вт/м.К):</div>
                 <input class="form-control" type="number" id="kof_tepl">
             </div>
 
@@ -176,7 +176,7 @@
             </div>
 
             <div class="form">
-                <button> Расчет </button>
+                <button onclick="calculator()"> Расчет </button>
             </div>
 
         </div>
