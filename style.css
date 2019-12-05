@@ -28,3 +28,12 @@
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 45px
 }
+
+table td {
+    border: 1px solid black;
+    padding: 5px 2px 5px 2px
+}
+
+table{
+    padding-top: 30px
+}

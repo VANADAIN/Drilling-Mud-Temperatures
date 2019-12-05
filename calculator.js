@@ -286,21 +286,42 @@ function calculator() {
     for (var i = 0; i < H; i = i + H1) {
         
         var t4 = (M1 * (2.718**(R3*i))) + (Q1*(2.718**(R4*i))) - A4 + B + T0 + S*i 
-        t4.toFixed(2)
-        T4.push(t4)
+        var tf4 = t4.toFixed(2)
+        T4.push(tf4)
         
         var t5 = (M2 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) + B + T0 + S*i 
-        t5.toFixed(2)
-        T5.push(t5)
+        var tf5 = t5.toFixed(2)
+        T5.push(tf5)
 
         var t6 = T0 + S*i
-        t6.toFixed(2)
-        T6.push(t6)
+        var tf6 = t6.toFixed(2)
+        T6.push(tf6)
 
     }
 
     console.log(T4)
     console.log(T5)
     console.log(T6)
+
+    // table part
+    var TTT = []
+    TTT.push(T4)
+    TTT.push(T5)
+    TTT.push(T6)
+
+    var table = document.querySelector('#table')
+
+    for (var k = 0; k < TTT.length; k++) {
+        var tr = document.createElement('tr')
+
+        for ( var j = 0; j < TTT[k].length; j++){
+            var td = document.createElement('td')
+            td.innerHTML = TTT[k][j]
+
+            tr.appendChild(td)
+        }
+
+        table.appendChild(tr)
+    }
 
 }
