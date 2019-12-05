@@ -6,87 +6,87 @@ function calculator() {
     console.log("start")
 
     let consumption = document.getElementById('consumption').value
-    let Q = consumption
+    let Q = Number(consumption)
 
     let diameter = document.getElementById('diameter').value
-    let D = diameter
+    let D = Number(diameter)
 
     let depth = document.getElementById('depth').value
     let H = Number(depth)
 
     let outer_d = document.getElementById('outer_d').value
-    let D1 = outer_d
+    let D1 = Number(outer_d)
 
     let inner_d = document.getElementById('inner_d').value
-    let D2 = inner_d
+    let D2 = Number(inner_d)
 
     let hydro_shaggily = document.getElementById('hydro_shaggily').value
-    let K = hydro_shaggily
+    let K = Number(hydro_shaggily)
 
     let connection_type = document.getElementById('connection').value
-    let J = connection_type
+    let J = Number(connection_type)
 
     let channel_d = document.getElementById('channel_d').value
-    let D3 = channel_d
+    let D3 = Number(channel_d)
 
     let length = document.getElementById('length').value
-    let L = length
+    let L = Number(length)
 
     let liquid_type = document.getElementById('liquid_type').value
-    let J1 = liquid_type
+    let J1 = Number(liquid_type)
 
     let density = document.getElementById('density').value
-    let R = density
+    let R = Number(density)
 
     let structural = document.getElementById('structural').value
-    let N = structural
+    let N = Number(structural)
 
     let dynamical = document.getElementById('dynamical').value
-    let T = dynamical
+    let T = Number(dynamical)
 
     let dynamical_2 = document.getElementById('dynamical_2').value
-    let M = dynamical_2
+    let M = Number(dynamical_2)
 
     console.log('Getting inputs')
 
     let ud_tepl = document.getElementById('ud_tepl').value
-    let C1 = ud_tepl
+    let C1 = Number(ud_tepl)
 
     let kof_tepl = document.getElementById('kof_tepl').value
-    let L1 = kof_tepl
+    let L1 = Number(kof_tepl)
 
     let rock_density = document.getElementById('rock_density').value
-    let R2 = rock_density
+    let R2 = Number(rock_density)
 
     let thermal_capacity = document.getElementById('thermal_capacity').value
-    let C2 = thermal_capacity
+    let C2 = Number(thermal_capacity)
 
     let thermal_conductivity = document.getElementById('thermal_conductivity').value
-    let L2 = thermal_conductivity
+    let L2 = Number(thermal_conductivity)
 
     let temperature_rock = document.getElementById('temperature').value
-    let T0 = temperature_rock
+    let T0 = Number(temperature_rock)
 
     let gradient = document.getElementById('gradient').value
-    let S = gradient
+    let S = Number(gradient)
 
     let bt = document.getElementById('bt').value
-    let L0 = bt
+    let L0 = Number(bt)
 
     let start_temperature = document.getElementById('start_temperature').value
-    let T1 = start_temperature
+    let T1 = Number(start_temperature)
 
     let spending = document.getElementById('spending').value
-    let N3 = spending
+    let N3 = Number(spending)
 
     let circulation = document.getElementById('circulation').value
-    let T2 = circulation
+    let T2 = Number(circulation)
 
     let depth_step = document.getElementById('depth_step').value
     let H1 = Number(depth_step)
 
     let frequency = document.getElementById('frequency').value
-    let N1 = frequency
+    let N1 = Number(frequency)
 
     //calculation part
 
@@ -240,19 +240,19 @@ function calculator() {
     var T5 = [] 
     var T6 = [] 
 
-    // for (var i = 0; i < H; i = i + H1) {
-    //     console.log("start loop")
-    //     console.log(i)
-    //     var t4 = (M1 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) - A4 + B + T0 + S*i 
-    //     T4.push(t4)
+    for (var i = 0; i < H; i = i + H1) {
+        console.log("start loop")
+        console.log(i)
+        var t4 = (M1 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) - A4 + B + T0 + S*i 
+        T4.push(t4)
 
-    //     var t5 = (M2 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) + B + T0 + S*i 
-    //     T5.push(t5)
+        var t5 = (M2 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) + B + T0 + S*i 
+        T5.push(t5)
 
-    //     var t6 = T0 + S*i
-    //     T6.push(t6)
+        var t6 = T0 + S*i
+        T6.push(t6)
 
-    // }
+    }
 
     console.log(T4)
     console.log(T5)
