@@ -7,87 +7,89 @@ function calculator() {
 
     let consumption = document.getElementById('consumption').value
     let Q = Number(consumption)
+    console.log(Q)
 
     let diameter = document.getElementById('diameter').value
     let D = Number(diameter)
+    console.log(D)
 
     let depth = document.getElementById('depth').value
     let H = Number(depth)
-
+    console.log(H)
     let outer_d = document.getElementById('outer_d').value
     let D1 = Number(outer_d)
-
+    console.log(D1)
     let inner_d = document.getElementById('inner_d').value
     let D2 = Number(inner_d)
-
+    console.log(D2)
     let hydro_shaggily = document.getElementById('hydro_shaggily').value
     let K = Number(hydro_shaggily)
-
+    console.log(K)
     let connection_type = document.getElementById('connection').value
     let J = Number(connection_type)
-
+    console.log(J)
     let channel_d = document.getElementById('channel_d').value
     let D3 = Number(channel_d)
-
+    console.log(D3)
     let length = document.getElementById('length').value
     let L = Number(length)
-
+    console.log(L)
     let liquid_type = document.getElementById('liquid_type').value
     let J1 = Number(liquid_type)
-
+    console.log(J1)
     let density = document.getElementById('density').value
     let R = Number(density)
-
+    console.log(R)
     let structural = document.getElementById('structural').value
     let N = Number(structural)
-
+    console.log(N)
     let dynamical = document.getElementById('dynamical').value
     let T = Number(dynamical)
-
+    console.log(T)
     let dynamical_2 = document.getElementById('dynamical_2').value
     let M = Number(dynamical_2)
-
+    console.log(M)
     console.log('Getting inputs')
 
     let ud_tepl = document.getElementById('ud_tepl').value
     let C1 = Number(ud_tepl)
-
+    console.log(C1)
     let kof_tepl = document.getElementById('kof_tepl').value
     let L1 = Number(kof_tepl)
-
+    console.log(L1)
     let rock_density = document.getElementById('rock_density').value
     let R2 = Number(rock_density)
-
+    console.log(R2)
     let thermal_capacity = document.getElementById('thermal_capacity').value
     let C2 = Number(thermal_capacity)
-
+    console.log(C2)
     let thermal_conductivity = document.getElementById('thermal_conductivity').value
     let L2 = Number(thermal_conductivity)
-
+    console.log(L2)
     let temperature_rock = document.getElementById('temperature').value
     let T0 = Number(temperature_rock)
-
+    console.log(T0)
     let gradient = document.getElementById('gradient').value
     let S = Number(gradient)
-
+    console.log(S)
     let bt = document.getElementById('bt').value
     let L0 = Number(bt)
-
+    console.log(L0)
     let start_temperature = document.getElementById('start_temperature').value
     let T1 = Number(start_temperature)
-
+    console.log(T1)
     let spending = document.getElementById('spending').value
     let N3 = Number(spending)
-
+    console.log(N3)
     let circulation = document.getElementById('circulation').value
     let T2 = Number(circulation)
-
+    console.log(T2)
     let depth_step = document.getElementById('depth_step').value
     let H1 = Number(depth_step)
-
+    console.log(H1)
     let frequency = document.getElementById('frequency').value
     let N1 = Number(frequency)
-
+    console.log(N1)
     //calculation part
 
     let Pi = 3.1415926
@@ -102,7 +104,7 @@ function calculator() {
     } else {
         var a = 0
     }
-
+    console.log(J)
     //угловая скорость
     let U = Pi * D1 * (N1/60)
     // сечение внутри труб
@@ -114,6 +116,10 @@ function calculator() {
     // сечение внутри кольца
     let F2 = Pi* ((D2**2)-(D1**2))/4
 
+    console.log(U)
+    console.log(F1)
+    console.log(E)
+    console.log(G)
     // Reynolds part 
 
     // скорость потока
@@ -125,6 +131,11 @@ function calculator() {
     // прандтль
     let P = m * (C1/L1)
     
+    console.log(V)
+    console.log(m)
+    console.log(R1)
+    console.log(P)
+
     // теплоотдача
     if (J == 1) {
 
@@ -143,12 +154,12 @@ function calculator() {
         }
 
     }
-
+    console.log(A0)
     // гидравлическое сопротивление
 
     if (J == 1) {
 
-        let W = 0.1*( (1.46 * (K/D2) + (100/R1))**0.25 )
+        var W = 0.1*( (1.46 * (K/D2) + (100/R1))**0.25 )
 
     } else {
 
@@ -161,7 +172,7 @@ function calculator() {
         }
 
     }
-
+    console.log(W)
     // потери по длине 
     let P1 = W*(V**2)*R*(H/2*D2)
     // кол-во труб
@@ -173,22 +184,28 @@ function calculator() {
 
     let D4 = D - D1
 
+    console.log(P1)
+    console.log(P2)
+    console.log(N4)
+    console.log(D4)
 
     //  lambda part 
 
     if (J == 1) {
 
-        let W1 = (0.3164/(R1**0.25))
+        var W1 = (0.3164/(R1**0.25))
 
     } else {
 
         if (R1 <= 1200) {
-            let W1 = (14.6/(R1**0.9))
+            var W1 = (14.6/(R1**0.9))
         }   else {
-            let W = (0.075/(R1**0.125))
+            var W1 = (0.075/(R1**0.125))
         }
 
     }
+    console.log(W1)
+
     // потери в кольцевом пространстве
     let P3 = W * (V**2) * R * 1.03 * (H/(2*D4))
     // гидр уклон
@@ -197,7 +214,7 @@ function calculator() {
     // коэф теплопередачи через стенку трубы
     let log = (Math.log(D1/D2)/Math.log(10))
     let K1 = (1/ ( 1/(A0*D1) + 0.5*(log/L0)+(1/(A0*D1)) ) )
-
+    console.log(K1)
     // критерий био
     let B1 = A0* (D/(2*L2))
     // температуропроводность
@@ -224,11 +241,20 @@ function calculator() {
     let X5 = (R3 * ( 2.718**(R3*H) ) ) - (R3 * ( 2.718**(R3*H) ))
     let X6 = T1 - T0 + A4 - B
 
-    let M1 = -(X6*R4*2.718**(R4*H) + X4*(A4-T3))/X5
-    let M2 = (X6*R3*2.718**(R4*H) + X4*(A4-T3)*(R3/R4))/X5
+    let M1 = -(X6*R4*(2.718**(R4*H)) + X4*(A4-T3))/X5
+    let M2 = (X6*R3*(2.718**(R4*H)) + X4*(A4-T3)*(R3/R4))/X5
 
-    let Q1 = (X6*R3*2.718**(R3*H) + X4*(A4-T3))/X5
-    let Q2 = -(X6*R3*2.718**(R4*H) + X4*(A4-T3)*(R3/R4))/X5
+    let Q1 = (X6*R3*(2.718**(R3*H)) + X4*(A4-T3))/X5
+    let Q2 = -(X6*R3*(2.718**(R4*H)) + X4*(A4-T3)*(R3/R4))/X5
+
+    console.log(M1)
+    console.log(M2)
+
+    console.log(R3)
+    console.log(Q1)
+    console.log(B)
+    console.log(A4)
+    console.log(T0)
 
     console.log("calculating temps")
     console.log(H)
@@ -243,9 +269,10 @@ function calculator() {
     for (var i = 0; i < H; i = i + H1) {
         console.log("start loop")
         console.log(i)
+        
         var t4 = (M1 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) - A4 + B + T0 + S*i 
         T4.push(t4)
-
+        console.log(t4)
         var t5 = (M2 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) + B + T0 + S*i 
         T5.push(t5)
 
