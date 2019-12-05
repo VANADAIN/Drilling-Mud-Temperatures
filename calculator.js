@@ -131,6 +131,7 @@ function calculator() {
     // прандтль
     let P = m * (C1/L1)
     
+    console.log("checkpoint1")
     console.log(V)
     console.log(m)
     console.log(R1)
@@ -188,6 +189,7 @@ function calculator() {
     console.log(P2)
     console.log(N4)
     console.log(D4)
+    console.log("checkpoint2")
 
     //  lambda part 
 
@@ -238,8 +240,14 @@ function calculator() {
     let A4 = (1/X4) * ( S - 9.81 * (T1/C1) )
     let B = 9.81 * G * (T1 + I2)/(K2*Pi*D)
 
+    console.log(K2)
+    console.log(R3)
+    console.log(X1)
+
     let X5 = (R3 * ( 2.718**(R3*H) ) ) - (R3 * ( 2.718**(R3*H) ))
     let X6 = T1 - T0 + A4 - B
+
+    console.log(X5)
 
     let M1 = -(X6*R4*(2.718**(R4*H)) + X4*(A4-T3))/X5
     let M2 = (X6*R3*(2.718**(R4*H)) + X4*(A4-T3)*(R3/R4))/X5
@@ -247,6 +255,7 @@ function calculator() {
     let Q1 = (X6*R3*(2.718**(R3*H)) + X4*(A4-T3))/X5
     let Q2 = -(X6*R3*(2.718**(R4*H)) + X4*(A4-T3)*(R3/R4))/X5
 
+    console.log("checkpoint")
     console.log(M1)
     console.log(M2)
 
