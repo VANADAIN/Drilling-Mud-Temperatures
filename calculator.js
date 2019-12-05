@@ -286,12 +286,15 @@ function calculator() {
     for (var i = 0; i < H; i = i + H1) {
         
         var t4 = (M1 * (2.718**(R3*i))) + (Q1*(2.718**(R4*i))) - A4 + B + T0 + S*i 
+        t4.toFixed(2)
         T4.push(t4)
         
         var t5 = (M2 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) + B + T0 + S*i 
+        t5.toFixed(2)
         T5.push(t5)
 
         var t6 = T0 + S*i
+        t6.toFixed(2)
         T6.push(t6)
 
     }
