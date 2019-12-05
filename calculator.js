@@ -124,8 +124,14 @@ function calculator() {
 
     // скорость потока
     let V = Q/(60000*F1)
+
+    
     // вязкость бингамовской жидкости
     let m = N + 0.17*T*(D2/V)
+    console.log("v =" + V)
+    console.log("D2 =" + D2)
+
+    console.log("R/m =" + R/m)
     // reynolds
     let R1 = V*D2*(R/m)
     // прандтль
@@ -241,10 +247,12 @@ function calculator() {
     let B = 9.81 * G * (T1 + I2)/(K2*Pi*D)
 
     console.log(K2)
-    console.log(R3)
     console.log(X1)
+    console.log("R3*h = " + R3*H)
+    console.log("R3 = " + R3)
+    
 
-    let X5 = (R3 * ( 2.718**(R3*H) ) ) - (R3 * ( 2.718**(R3*H) ))
+    let X5 = (R3 * ( 2.718**(R3*H) ) ) - (R4 * ( 2.718**(R4*H) ))
     let X6 = T1 - T0 + A4 - B
 
     console.log(X5)
@@ -276,12 +284,10 @@ function calculator() {
     var T6 = [] 
 
     for (var i = 0; i < H; i = i + H1) {
-        console.log("start loop")
-        console.log(i)
         
-        var t4 = (M1 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) - A4 + B + T0 + S*i 
+        var t4 = (M1 * (2.718**(R3*i))) + (Q1*(2.718**(R4*i))) - A4 + B + T0 + S*i 
         T4.push(t4)
-        console.log(t4)
+        
         var t5 = (M2 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) + B + T0 + S*i 
         T5.push(t5)
 
