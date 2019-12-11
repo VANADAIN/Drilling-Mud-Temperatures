@@ -270,7 +270,7 @@ function calculator() {
     console.log(M2)
 
     console.log(R3)
-    console.log(Q1)
+    console.log(Q2)
     console.log(B)
     console.log(A4)
     console.log(T0)
