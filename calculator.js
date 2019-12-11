@@ -181,13 +181,13 @@ function calculator() {
     }
     console.log(W)
     // потери по длине 
-    let P1 = W*(V**2)*R*(H/2*D2)
+    let P1 = W*(V**2)*R*(H/(2*D2))
     // кол-во труб
     let N4 = H/L
     // потери давления в соединениях
     let P2 = E*(V**2)*R*(N4/2)
     // гидравлический уклон
-    let I1 = ((P1+P2)/(9.81*R*H)) 
+    let I1 = (P1+P2)/(9.81*R*H)
 
     let D4 = D - D1
 
@@ -201,7 +201,7 @@ function calculator() {
 
     if (J == 1) {
 
-        var W1 = (0.3164/(R1**0.25))
+        var W1 = 0.3164/(R1**0.25)
 
     } else {
 
@@ -220,8 +220,8 @@ function calculator() {
     let I2  = (P3/ (9.81*R* 1.03* H))
 
     // коэф теплопередачи через стенку трубы
-    let log = (Math.log(D1/D2)/Math.log(10))
-    let K1 = (1/ ( 1/(A0*D1) + 0.5*(log/L0)+(1/(A0*D1)) ) )
+    let log = (Math.log(D1/D2)/(Math.log(10)))
+    let K1 = 1/ ( 1/(A0*D1) + 0.5*(log/L0)+(1/(A0*D1)) ) 
     console.log(K1)
     // критерий био
     let B1 = A0* (D/(2*L2))
@@ -244,12 +244,14 @@ function calculator() {
     let R4 = X2*(X - X1)
 
     let A4 = (1/X4) * ( S - 9.81 * (T1/C1) )
-    let B = 9.81 * G * (T1 + I2)/(K2*Pi*D)
+    let B = 9.81 * G * (I1 + I2)/(K2*Pi*D)
 
     console.log(K2)
     console.log(X1)
     console.log("R3*h = " + R3*H)
     console.log("R3 = " + R3)
+    console.log("R4*h = " + R4*H)
+    console.log("R4 = " + R4)
     
 
     let X5 = (R3 * ( 2.718**(R3*H) ) ) - (R4 * ( 2.718**(R4*H) ))
@@ -261,7 +263,7 @@ function calculator() {
     let M2 = (X6*R3*(2.718**(R4*H)) + X4*(A4-T3)*(R3/R4))/X5
 
     let Q1 = (X6*R3*(2.718**(R3*H)) + X4*(A4-T3))/X5
-    let Q2 = -(X6*R3*(2.718**(R4*H)) + X4*(A4-T3)*(R3/R4))/X5
+    let Q2 = -(X6*R4*(2.718**(R3*H)) + X4*(A4-T3)*(R4/R3))/X5
 
     console.log("checkpoint")
     console.log(M1)
@@ -274,9 +276,14 @@ function calculator() {
     console.log(T0)
 
     console.log("calculating temps")
-    console.log(H)
-    console.log(H1)
-    console.log(H+H1)
+    console.log(M1)
+    console.log(R3)
+    console.log(Q1)
+    console.log(R4)
+    console.log(A4)
+    console.log(B)
+    console.log(T0)
+    
 
     //final temperatures
     var T4 = [] 
@@ -289,7 +296,7 @@ function calculator() {
         var tf4 = t4.toFixed(2)
         T4.push(tf4)
         
-        var t5 = (M2 * 2.718**(R3*i)) + (Q1*2.718**(R4*i)) + B + T0 + S*i 
+        var t5 = (M2 * 2.718**(R3*i)) + (Q2*2.718**(R4*i)) + B + T0 + S*i 
         var tf5 = t5.toFixed(2)
         T5.push(tf5)
 
