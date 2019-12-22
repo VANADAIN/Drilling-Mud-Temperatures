@@ -286,9 +286,9 @@ function calculator() {
     
 
     //final temperatures
-    var T4 = [] 
-    var T5 = [] 
-    var T6 = [] 
+    var T4 = ["T4"] 
+    var T5 = ["T5"] 
+    var T6 = ["Gradient"] 
 
     for (var i = 0; i < H; i = i + H1) {
         
