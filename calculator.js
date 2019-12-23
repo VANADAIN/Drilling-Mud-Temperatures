@@ -289,8 +289,9 @@ function calculator() {
     var T4 = ["T4"] 
     var T5 = ["T5"] 
     var T6 = ["Gradient"] 
+    Heights = ["H"]
 
-    for (var i = 0; i < H; i = i + H1) {
+    for (var i = 0; i <= H; i = i + H1) {
         
         var t4 = (M1 * (2.718**(R3*i))) + (Q1*(2.718**(R4*i))) - A4 + B + T0 + S*i 
         var tf4 = t4.toFixed(2)
@@ -304,6 +305,8 @@ function calculator() {
         var tf6 = t6.toFixed(2)
         T6.push(tf6)
 
+        Heights.push(i)
+
     }
 
     console.log(T4)
@@ -315,6 +318,7 @@ function calculator() {
     TTT.push(T4)
     TTT.push(T5)
     TTT.push(T6)
+    TTT.push(Heights)
 
     var table = document.querySelector('#table')
 
