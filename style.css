@@ -5,7 +5,7 @@
 }
 
 .form-control{
-    width: 80px;
+    width: 64px;
     padding: 0 12px;
     display:inline-block;
     vertical-align: top;
@@ -13,7 +13,7 @@
     outline: none;
     border: 1px solid #ccc;
     border-radius: 5px;
-    height: 40px;
+    height: 30px;
     user-select: none;
     margin: 0px ;
 }
@@ -33,15 +33,34 @@
     grid-column-gap: 45px
 }
 
+table{
+    margin-top: 30px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
 table td {
+    border: 1px solid black;
+    padding: 4px;
+}
+
+#final {
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 5px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
     border: 1px solid black;
 }
 
-table{
-    padding-top: 30px
+#final:hover{
+    background: rgb(221, 221, 221);
 }
-
-
-
-
 
