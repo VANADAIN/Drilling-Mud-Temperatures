@@ -10,7 +10,9 @@
   },
   "author": "Marchuk Ivan",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "^3.4.1"
+  },
   "devDependencies": {
     "electron": "^6.0.12",
     "electron-packager": "^14.1.1"
