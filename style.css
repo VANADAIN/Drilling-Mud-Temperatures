@@ -62,3 +62,13 @@ button {
 #final:hover {
 	background: rgb(221, 221, 221);
 }
+
+select {
+	overflow: hidden;
+	outline: none;
+	height: 30px;
+	width: 350px;
+	-moz-border-radius: 9px 9px 9px 9px;
+	-webkit-border-radius: 9px 9px 9px 9px;
+	border-radius: 9px 9px 9px 9px;
+}

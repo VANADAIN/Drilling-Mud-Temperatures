@@ -52,13 +52,12 @@
 
 				<div class="form">
 					<div class="label">Тип соединений бурильной колонны:</div>
-					<ul>
-						<li>1 - Муфтово - замковое</li>
-						<li>2 - Ниппельное</li>
-						<li>3 - ССК</li>
-						<li>4 - КССК</li>
-					</ul>
-					<input class="form-control" type="text" id="connection" value="1" />
+					<select id="connection">
+						<option value="1">Муфтово - замковое</option>
+						<option value="2">Ниппельное</option>
+						<option value="3">ССК</option>
+						<option value="4">КССК</option>
+					</select>
 				</div>
 
 				<div class="form">
@@ -75,11 +74,10 @@
 
 				<div class="form">
 					<div class="label">Тип промывочной жидкости:</div>
-					<ul>
-						<li>1 - Ньютоновская</li>
-						<li>2 - Неньютоновская</li>
-					</ul>
-					<input class="form-control" type="text" id="liquid_type" value="1" />
+					<select id="liquid_type">
+						<option value="1">Ньютоновская</option>
+						<option value="2">Неньютоновская</option>
+					</select>
 				</div>
 			</div>
 
@@ -92,15 +90,14 @@
 
 				<div class="form">
 					<div class="label">
-						Структурная вязкость промывочной жидкости (Па.с) (опционально):
+						Структурная вязкость промывочной жидкости (Па.с):
 					</div>
 					<input class="form-control" type="text" id="structural" value="1" />
 				</div>
 
 				<div class="form">
 					<div class="label">
-						Динамическое напряжение сдвига промывочной жидкости (Па)
-						(опционально):
+						Динамическое напряжение сдвига промывочной жидкости (Па):
 					</div>
 					<input class="form-control" type="text" id="dynamical" value="1" />
 				</div>
@@ -152,7 +149,10 @@
 						value="2050"
 					/>
 				</div>
+			</div>
 
+			<!----------------------- part 3 -->
+			<div class="column_3">
 				<div class="form">
 					<div class="label">
 						Коэффициент теплопроводности горной породы (Вт/м.К):
@@ -176,10 +176,7 @@
 					<div class="label">Геотермический градиент (град.цельсия/м):</div>
 					<input class="form-control" type="text" id="gradient" value="0.02" />
 				</div>
-			</div>
 
-			<!----------------------- part 3 -->
-			<div class="column_3">
 				<div class="form">
 					<div class="label">Коэф. теплопроводности БТ (Вт/м.К):</div>
 					<input class="form-control" type="text" id="bt" value="45" />
