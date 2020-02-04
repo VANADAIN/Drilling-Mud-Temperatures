@@ -223,7 +223,7 @@ function calculator() {
 	const T3 = N3 / (G * C1);
 	// koefs
 	const X = K2 * (D / 2);
-	const X1 = (K ** 2 * (D ** 2 / 4) + K2 * K1 * D) ** 0.5;
+	const X1 = ((K ** 2 * D ** 2) / 4 + K2 * K1 * D) ** 0.5;
 	const X2 = Pi / (G * C1);
 
 	const X4 = K1 * X2;
@@ -275,11 +275,11 @@ function calculator() {
 	const T4 = ["T4"];
 	const T5 = ["T5"];
 	const T6 = ["Gradient"];
-	const Heights = ["H"];
+	const Heights = ["Heights"];
 
 	for (let i = 0; i <= H; i = i + H1) {
 		const t4 =
-			M1 * 2.718 ** (R3 * i) + Q1 * 2.718 ** (R4 * i) - A4 + B + T0 + S * i;
+			M1 * (2.718 ** (R3 * i)) + Q1 * (2.718 ** (R4 * i)) - A4 + B + T0 + S * i;
 		const tf4 = t4.toFixed(2);
 		T4.push(tf4);
 
@@ -299,22 +299,129 @@ function calculator() {
 	console.log(T6);
 
 	// table part
-	var TTT = [];
-	TTT.push(T4);
-	TTT.push(T5);
-	TTT.push(T6);
-	TTT.push(Heights);
+
+	// var TTT = [];
+	// TTT.push(T4);
+	// TTT.push(T5);
+	// TTT.push(T6);
+	// TTT.push(Heights);
+
+	// var div = document.querySelector("#div");
+	// var table = document.createElement("table");
+	// var p = document.createElement("p");
+
+	// for (let k = 0; k < TTT.length; k++) {
+	// 	var tr = document.createElement("tr");
+
+	// 	for (let j = 0; j < TTT[k].length; j++) {
+	// 		var td = document.createElement("td");
+	// 		td.innerHTML = TTT[k][j];
+
+	// 		tr.appendChild(td);
+	// 	}
+
+	// 	p.innerHTML = counter;
+
+	// 	table.appendChild(tr);
+	// 	div.appendChild(p);
+	// 	div.appendChild(table);
+	// }
+	// counter = counter + 1;
+
+	//adding K_agr
+
+	let sum = 0;
+	T4.shift();
+	for (i = 0; i < T4.length; i++) {
+		sum = sum + Number(T4[i]);
+	}
+	let average = sum / T4.length;
+	k_agr = 1 + (1.4 * 100) / ((C2) * average)
+
+	console.log("T4 new = " + T4);
+	console.log("sum = " + sum);
+	console.log("KAGR = " + k_agr);
+
+	const X_new = (k_agr * K2 * D) / 2;
+	const X1_new = ((((k_agr ** 2) * (K ** 2) * (D ** 2)) / 4) + K2 * K1 * D) ** 0.5;
+	const X2_new = Pi / (G * C1);
+
+	const X4_new = K1 * X2;
+
+	const R3_new = X2_new * (X_new + X1_new);
+	const R4_new = X2_new * (X_new - X1_new);
+
+	const A4_new = (1 / X4_new) * (S - 9.81 * (T1 / C1));
+	const B_new = (9.81 * G * (I1 + I2)) / (K2 * Pi * D);
+
+	const X5_new =
+		R3_new * 2.718 ** (R3_new * H) - R4_new * 2.718 ** (R4_new * H);
+	const X6_new = T1 - T0 + A4_new - B_new;
+
+	const M1_new =
+		-(X6_new * R4_new * 2.718 ** (R4_new * H) + X4_new * (A4_new - T3)) /
+		X5_new;
+	const M2_new =
+		(X6_new * R3_new * 2.718 ** (R4_new * H) +
+			X4_new * (A4_new - T3) * (R3_new / R4_new)) /
+		X5_new;
+
+	const Q1_new =
+		(X6_new * R3_new * 2.718 ** (R3_new * H) + X4_new * (A4_new - T3)) / X5_new;
+	const Q2_new =
+		-(
+			X6_new * R4_new * 2.718 ** (R3_new * H) +
+			X4_new * (A4_new - T3) * (R4_new / R3_new)
+		) / X5_new;
+
+	const T4_new = ["T4"];
+	const T5_new = ["T5"];
+	const T6_new = ["Gradient"];
+	const Heights_new = ["Heights"];
+
+	for (let i = 0; i <= H; i = i + H1) {
+		const t4_new =
+			M1_new * 2.718 ** (R3_new * i) +
+			Q1_new * 2.718 ** (R4_new * i) -
+			A4_new +
+			B_new +
+			T0 +
+			S * i;
+		const tf4_new = t4_new.toFixed(2);
+		T4_new.push(tf4_new);
+
+		const t5_new =
+			M2_new * 2.718 ** (R3_new * i) +
+			Q2_new * 2.718 ** (R4_new * i) +
+			B_new +
+			T0 +
+			S * i;
+		const tf5_new = t5_new.toFixed(2);
+		T5_new.push(tf5_new);
+
+		const t6_new = T0 + S * i;
+		const tf6_new = t6_new.toFixed(2);
+		T6_new.push(tf6_new);
+
+		Heights_new.push(i);
+	}
+
+	var TTT_new = [];
+	TTT_new.push(T4_new);
+	TTT_new.push(T5_new);
+	TTT_new.push(T6_new);
+	TTT_new.push(Heights_new);
 
 	var div = document.querySelector("#div");
 	var table = document.createElement("table");
 	var p = document.createElement("p");
 
-	for (let k = 0; k < TTT.length; k++) {
+	for (let k = 0; k < TTT_new.length; k++) {
 		var tr = document.createElement("tr");
 
-		for (let j = 0; j < TTT[k].length; j++) {
+		for (let j = 0; j < TTT_new[k].length; j++) {
 			var td = document.createElement("td");
-			td.innerHTML = TTT[k][j];
+			td.innerHTML = TTT_new[k][j];
 
 			tr.appendChild(td);
 		}
