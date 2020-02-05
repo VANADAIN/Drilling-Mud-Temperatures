@@ -107,7 +107,7 @@ function calculator() {
 	// Массовый расход
 	const G = Q * (R / 60000);
 	// сечение внутри кольца
-	const F2 = (Pi * ((D2 ** 2) - (D1 ** 2))) / 4;
+	const F2 = (Pi * ((D ** 2) - (D1 ** 2))) / 4;
 
 	console.log(U);
 	console.log(F1);
@@ -196,7 +196,7 @@ function calculator() {
 
 	// теплоотдача
 	if (J == 1) {
-		if (R1 > 2400) {
+		if (R1_sec > 2400) {
 			var A0_sec = 0.021 * (R1_sec ** 0.8) * (P_sec ** 0.43) * (L1 / D4);
 		} else {
 			var A0_sec = 0.15 * (R1_sec ** 0.33) * (P_sec ** 0.43) * (L1 / D4);
@@ -214,7 +214,7 @@ function calculator() {
 	if (J == 1) {
 		var W1 = 0.3164 / (R1_sec ** 0.25);
 	} else {
-		if (R1 <= 1200) {
+		if (R1_sec <= 1200) {
 			var W1 = 14.6 / (R1_sec ** 0.9);
 		} else {
 			var W1 = 0.075 / (R1_sec ** 0.125);
@@ -223,9 +223,9 @@ function calculator() {
 	console.log(W1);
 
 	// потери в кольцевом пространстве
-	const P3 = W1 * (V_sec ** 2) * R_sec * 1.03 * (H / (2 * D4));
+	const P3 = W1 * (V_sec ** 2) * R * 1.03 * (H / (2 * D4));
 	// гидр уклон
-	const I2 = P3 / (9.81 * R_sec * 1.03 * H);
+	const I2 = P3 / (9.81 * R * 1.03 * H);
 
 	// коэф теплопередачи через стенку трубы
 	const log = Math.log(D1 / D2) / Math.log(10);
