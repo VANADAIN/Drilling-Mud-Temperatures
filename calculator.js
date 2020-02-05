@@ -3,94 +3,86 @@ var counter = 1;
 function calculator() {
 	// getter part
 
-	console.log("start");
 
 	const consumption = document.getElementById("consumption").value;
 	const Q = Number(consumption);
-	console.log(Q);
 
 	const diameter = document.getElementById("diameter").value;
 	const D = Number(diameter);
-	console.log(D);
 
 	const depth = document.getElementById("depth").value;
 	const H = Number(depth);
-	console.log(H);
+
 	const outer_d = document.getElementById("outer_d").value;
 	const D1 = Number(outer_d);
-	console.log(D1);
+
 	const inner_d = document.getElementById("inner_d").value;
 	const D2 = Number(inner_d);
-	console.log(D2);
+
 	const hydro_shaggily = document.getElementById("hydro_shaggily").value;
 	const K = Number(hydro_shaggily);
-	console.log(K);
+
 	const connection_type = document.getElementById("connection").value;
 	const J = Number(connection_type);
-	console.log(J);
+
 	const channel_d = document.getElementById("channel_d").value;
 	const D3 = Number(channel_d);
-	console.log(D3);
+
 	const length = document.getElementById("length").value;
 	const L = Number(length);
-	console.log(L);
+
 	const liquid_type = document.getElementById("liquid_type").value;
 	const J1 = Number(liquid_type);
-	console.log(J1);
+
 	const density = document.getElementById("density").value;
 	const R = Number(density);
-	console.log(R);
+
 	const structural = document.getElementById("structural").value;
 	const N = Number(structural);
-	console.log(N);
+
 	const dynamical = document.getElementById("dynamical").value;
 	const T = Number(dynamical);
-	console.log(T);
-	const dynamical_2 = document.getElementById("dynamical_2").value;
-	const M = Number(dynamical_2);
-	console.log(M);
-	console.log("Getting inputs");
 
 	const ud_tepl = document.getElementById("ud_tepl").value;
 	const C1 = Number(ud_tepl);
-	console.log(C1);
+
 	const kof_tepl = document.getElementById("kof_tepl").value;
 	const L1 = Number(kof_tepl);
-	console.log(L1);
+
 	const rock_density = document.getElementById("rock_density").value;
 	const R2 = Number(rock_density);
-	console.log(R2);
+
 	const thermal_capacity = document.getElementById("thermal_capacity").value;
 	const C2 = Number(thermal_capacity);
-	console.log(C2);
+
 	const thermal_conductivity = document.getElementById("thermal_conductivity")
 		.value;
 	const L2 = Number(thermal_conductivity);
-	console.log(L2);
+
 	const temperature_rock = document.getElementById("temperature").value;
 	const T0 = Number(temperature_rock);
-	console.log(T0);
+
 	const gradient = document.getElementById("gradient").value;
 	const S = Number(gradient);
-	console.log(S);
+
 	const bt = document.getElementById("bt").value;
 	const L0 = Number(bt);
-	console.log(L0);
+
 	const start_temperature = document.getElementById("start_temperature").value;
 	const T1 = Number(start_temperature);
-	console.log(T1);
+
 	const spending = document.getElementById("spending").value;
 	const N3 = Number(spending);
-	console.log(N3);
+
 	const circulation = document.getElementById("circulation").value;
 	const T2 = Number(circulation);
-	console.log(T2);
+
 	const depth_step = document.getElementById("depth_step").value;
 	const H1 = Number(depth_step);
-	console.log(H1);
+
 	const frequency = document.getElementById("frequency").value;
 	const N1 = Number(frequency);
-	console.log(N1);
+
 	//calculation part
 
 	const Pi = 3.1415926;
@@ -111,17 +103,17 @@ function calculator() {
 	// сечение внутри труб
 	const F1 = (Pi * D2 ** 2) / 4;
 	// Коэф борда и карно
-	const E = a * ((D2 / D3) ** 2 - 1) ** 2;
+	const E = a * (((D2 / D3) ** 2) - 1) ** 2;
 	// Массовый расход
 	const G = Q * (R / 60000);
 	// сечение внутри кольца
-	const F2 = (Pi * (D2 ** 2 - D1 ** 2)) / 4;
+	const F2 = (Pi * ((D2 ** 2) - (D1 ** 2))) / 4;
 
 	console.log(U);
 	console.log(F1);
 	console.log(E);
 	console.log(G);
-	// Reynolds part
+	// Reynolds part N1
 
 	// скорость потока
 	const V = Q / (60000 * F1);
@@ -146,25 +138,25 @@ function calculator() {
 	// теплоотдача
 	if (J == 1) {
 		if (R1 > 2400) {
-			var A0 = 0.021 * R1 ** 0.8 * P ** 0.43 * (L1 / D2);
+			var A0 = 0.021 * (R1 ** 0.8) * (P ** 0.43) * (L1 / D2);
 		} else {
-			var A0 = 0.15 * R1 ** 0.33 * P ** 0.43 * (L1 / D2);
+			var A0 = 0.15 * (R1 ** 0.33) * (P ** 0.43) * (L1 / D2);
 		}
 	} else {
 		if (R1 > 2400) {
-			var A0 = 0.023 * R1 ** 0.8 * P ** 0.43 * (L1 / D2);
+			var A0 = 0.023 * (R1 ** 0.8) * (P ** 0.43) * (L1 / D2);
 		} else {
-			var A0 = 0.12 * R1 ** 0.33 * P ** 0.43 * (L1 / D2);
+			var A0 = 0.12 * (R1 ** 0.33) * (P ** 0.43) * (L1 / D2);
 		}
 	}
 	console.log(A0);
 	// гидравлическое сопротивление
 
-	if (J == 1) {
+	if (J1 == 1) {
 		var W = 0.1 * (1.46 * (K / D2) + 100 / R1) ** 0.25;
 	} else {
-		if (R1 > 2400) {
-			var W = 0.0075 / R1 ** 0.125;
+		if (R1 >= 2400) {
+			var W = 0.075 / (R1 ** 0.125);
 		} else if (R1 > 50000) {
 			var W = 0.02;
 		} else {
@@ -173,11 +165,11 @@ function calculator() {
 	}
 	console.log(W);
 	// потери по длине
-	const P1 = W * V ** 2 * R * (H / (2 * D2));
+	const P1 = W * (V ** 2) * R * (H / (2 * D2));
 	// кол-во труб
 	const N4 = H / L;
 	// потери давления в соединениях
-	const P2 = E * V ** 2 * R * (N4 / 2);
+	const P2 = E * (V ** 2) * R * (N4 / 2);
 	// гидравлический уклон
 	const I1 = (P1 + P2) / (9.81 * R * H);
 
@@ -189,41 +181,69 @@ function calculator() {
 	console.log(D4);
 	console.log("checkpoint2");
 
+	// !Reynolds part N2 
+
+	// скорость потока
+	const V_sec = Q / (60000 * F2);
+
+	// вязкость бингамовской жидкости
+	const m_sec = N + 0.17 * T * (D4 / V_sec);
+
+	// reynolds
+	const R1_sec = V_sec * D4 * (R / m_sec);
+	// прандтль
+	const P_sec = m_sec * (C1 / L1);
+
+	// теплоотдача
+	if (J == 1) {
+		if (R1 > 2400) {
+			var A0_sec = 0.021 * (R1_sec ** 0.8) * (P_sec ** 0.43) * (L1 / D4);
+		} else {
+			var A0_sec = 0.15 * (R1_sec ** 0.33) * (P_sec ** 0.43) * (L1 / D4);
+		}
+	} else {
+		if (R1 > 2400) {
+			var A0_sec = 0.023 * (R1_sec ** 0.8) * (P_sec ** 0.43) * (L1 / D4);
+		} else {
+			var A0_sec = 0.12 * (R1_sec ** 0.33) * (P_sec ** 0.43) * (L1 / D4);
+		}
+	}
+
 	//  lambda part
 
 	if (J == 1) {
-		var W1 = 0.3164 / R1 ** 0.25;
+		var W1 = 0.3164 / (R1_sec ** 0.25);
 	} else {
 		if (R1 <= 1200) {
-			var W1 = 14.6 / R1 ** 0.9;
+			var W1 = 14.6 / (R1_sec ** 0.9);
 		} else {
-			var W1 = 0.075 / R1 ** 0.125;
+			var W1 = 0.075 / (R1_sec ** 0.125);
 		}
 	}
 	console.log(W1);
 
 	// потери в кольцевом пространстве
-	const P3 = W1 * V ** 2 * R * 1.03 * (H / (2 * D4));
+	const P3 = W1 * (V_sec ** 2) * R_sec * 1.03 * (H / (2 * D4));
 	// гидр уклон
-	const I2 = P3 / (9.81 * R * 1.03 * H);
+	const I2 = P3 / (9.81 * R_sec * 1.03 * H);
 
 	// коэф теплопередачи через стенку трубы
 	const log = Math.log(D1 / D2) / Math.log(10);
-	const K1 = 1 / (1 / (A0 * D1) + 0.5 * (log / L0) + 1 / (A0 * D1));
+	const K1 = 1 / (1 / (A0 * D2) + 0.5 * (log / L0) + 1 / (A0_sec * D1));
 	console.log(K1);
 	// критерий био
-	const B1 = A0 * (D / (2 * L2));
+	const B1 = A0_sec * (D / (2 * L2));
 	// температуропроводность
 	const A3 = L2 / (C2 * R2);
 	// kryteri furie
-	const F3 = A3 * T2 * (4 / D ** 2);
+	const F3 = A3 * T2 * (4 / (D ** 2));
 	// koef nestacionarnogo teploobmena
-	const K2 = A0 / (1 + B1 * F3 ** 0.25);
+	const K2 = A0_sec / (1 + B1 * F3 ** 0.25);
 	// pryrost t na zaboe
 	const T3 = N3 / (G * C1);
 	// koefs
 	const X = K2 * (D / 2);
-	const X1 = ((K ** 2 * D ** 2) / 4 + K2 * K1 * D) ** 0.5;
+	const X1 = (((K ** 2) * (D ** 2)) / 4 + K2 * K1 * D) ** 0.5;
 	const X2 = Pi / (G * C1);
 
 	const X4 = K1 * X2;
@@ -373,6 +393,11 @@ function calculator() {
 			X6_new * R4_new * 2.718 ** (R3_new * H) +
 			X4_new * (A4_new - T3) * (R4_new / R3_new)
 		) / X5_new;
+
+	console.log("m1 = " + M1_new)
+	console.log("m2 = " + M2_new)
+	console.log("q1 = " + Q1_new)
+	console.log("q2 = " + Q2_new)
 
 	const T4_new = ["T4"];
 	const T5_new = ["T5"];
