@@ -399,10 +399,10 @@ function calculator() {
 	console.log("q1 = " + Q1_new)
 	console.log("q2 = " + Q2_new)
 
-	const T4_new = ["T4"];
-	const T5_new = ["T5"];
+	var T4_new = ["T4"];
+	var T5_new = ["T5"];
 	const T6_new = ["Gradient"];
-	const Heights_new = ["Heights"];
+	var Heights_new = ["Heights"];
 
 	for (let i = 0; i <= H; i = i + H1) {
 		const t4_new =
@@ -458,4 +458,43 @@ function calculator() {
 		div.appendChild(table);
 	}
 	counter = counter + 1;
+
+	var canvas = document.createElement("canvas");
+	canvas.id = 'line-chart'
+	canvas.setAttribute("width", "800")
+	canvas.setAttribute("height", "450")
+
+	// adding array versions for chart
+	Heights_new.shift()
+	T4_new.shift()
+	T5_new.shift()
+	var heights_chart = Heights_new
+	var down_temps_chart = T4_new
+	var up_temps_chart = T5_new
+
+	new Chart(document.getElementById("line-chart"), {
+		type: 'line',
+		data: {
+			// heights
+			labels: heights_chart,
+			datasets: [{
+				data: down_temps_chart,
+				label: "Температуры внутри бурильной колонны",
+				borderColor: "#3e95cd",
+				fill: false
+			}, {
+				data: up_temps_chart,
+				label: "Температуры кольцевого пространства",
+				borderColor: "#8e5ea2",
+				fill: false
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: 'Распределение температур раствора в скважине определенной высоты'
+			}
+		}
+	});
 }
+

@@ -7,6 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<title>Burenie</title>
 	<link rel="stylesheet" href="./style.css" />
+	<link rel="stylesheet" href="./node_modules/chart.js/dist/Chart.css" />
 </head>
 
 <body>
@@ -182,20 +183,20 @@
 				<button id="final" onclick="calculator()">Расчет</button>
 			</div>
 
+
 			<div class="form">
 				<button id="clearer" onclick="clearTables()">Очистить</button>
 			</div>
 		</div>
 	</div>
+
 	<div id="div"></div>
-	<script type="text/javascript">
-		// function toDots() {
-		// 	let tt = document.querySelectorAll(".form-control")[0].value
-		// 	tt.replace(/,/g, '.')
-		// }
-	</script>
+	<canvas id="line-chart" width="800" height="450"></canvas>
+
+	<script type="text/javascript" src="./node_modules/chart.js/dist/Chart.js"></script>
 	<script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="./clear.js"></script>
+	<!-- <script type="text/javascript" src="./staticChart.js"></script> -->
 	<script type="text/javascript" src="./calculator.js"></script>
 </body>
 
