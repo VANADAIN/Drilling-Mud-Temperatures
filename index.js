@@ -1,14 +1,14 @@
 const path = require('path')
 const url = require('url')
 
-const {app, BrowserWindow, Menu} = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
 
 let win
 
 // process.env.NODE_ENV = 'production'
 
 app.on('ready', () => {
-    
+
     // create window
     win = new BrowserWindow({
         width: 1400,

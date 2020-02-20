@@ -3,7 +3,6 @@ var counter = 1;
 function calculator() {
 	// getter part
 
-
 	const consumption = document.getElementById("consumption").value;
 	const Q = Number(consumption);
 
@@ -97,7 +96,7 @@ function calculator() {
 	} else {
 		var a = 0;
 	}
-	console.log(J);
+
 	//угловая скорость
 	const U = Pi * D1 * (N1 / 60);
 	// сечение внутри труб
@@ -109,31 +108,18 @@ function calculator() {
 	// сечение внутри кольца
 	const F2 = (Pi * ((D ** 2) - (D1 ** 2))) / 4;
 
-	console.log(U);
-	console.log(F1);
-	console.log(E);
-	console.log(G);
-	// Reynolds part N1
+	// * Reynolds part N1
 
 	// скорость потока
 	const V = Q / (60000 * F1);
 
 	// вязкость бингамовской жидкости
 	const m = N + 0.17 * T * (D2 / V);
-	console.log("v =" + V);
-	console.log("D2 =" + D2);
 
-	console.log("R/m =" + R / m);
 	// reynolds
 	const R1 = V * D2 * (R / m);
 	// прандтль
 	const P = m * (C1 / L1);
-
-	console.log("checkpoint1");
-	console.log(V);
-	console.log(m);
-	console.log(R1);
-	console.log(P);
 
 	// теплоотдача
 	if (J == 1) {
@@ -149,7 +135,7 @@ function calculator() {
 			var A0 = 0.12 * (R1 ** 0.33) * (P ** 0.43) * (L1 / D2);
 		}
 	}
-	console.log(A0);
+
 	// гидравлическое сопротивление
 
 	if (J1 == 1) {
@@ -163,7 +149,7 @@ function calculator() {
 			var W = 64 / R1;
 		}
 	}
-	console.log(W);
+
 	// потери по длине
 	const P1 = W * (V ** 2) * R * (H / (2 * D2));
 	// кол-во труб
@@ -174,12 +160,6 @@ function calculator() {
 	const I1 = (P1 + P2) / (9.81 * R * H);
 
 	const D4 = D - D1;
-
-	console.log(P1);
-	console.log(P2);
-	console.log(N4);
-	console.log(D4);
-	console.log("checkpoint2");
 
 	// !Reynolds part N2 
 
@@ -220,7 +200,6 @@ function calculator() {
 			var W1 = 0.075 / (R1_sec ** 0.125);
 		}
 	}
-	console.log(W1);
 
 	// потери в кольцевом пространстве
 	const P3 = W1 * (V_sec ** 2) * R * 1.03 * (H / (2 * D4));
@@ -230,7 +209,7 @@ function calculator() {
 	// коэф теплопередачи через стенку трубы
 	const log = Math.log(D1 / D2) / Math.log(10);
 	const K1 = 1 / (1 / (A0 * D2) + 0.5 * (log / L0) + 1 / (A0_sec * D1));
-	console.log(K1);
+
 	// критерий био
 	const B1 = A0_sec * (D / (2 * L2));
 	// температуропроводность
@@ -253,43 +232,14 @@ function calculator() {
 
 	const A4 = (1 / X4) * (S - 9.81 * (T1 / C1));
 	const B = (9.81 * G * (I1 + I2)) / (K2 * Pi * D);
-
-	console.log(K2);
-	console.log(X1);
-	console.log("R3*h = " + R3 * H);
-	console.log("R3 = " + R3);
-	console.log("R4*h = " + R4 * H);
-	console.log("R4 = " + R4);
-
 	const X5 = R3 * 2.718 ** (R3 * H) - R4 * 2.718 ** (R4 * H);
 	const X6 = T1 - T0 + A4 - B;
-
-	console.log(X5);
 
 	const M1 = -(X6 * R4 * 2.718 ** (R4 * H) + X4 * (A4 - T3)) / X5;
 	const M2 = (X6 * R3 * 2.718 ** (R4 * H) + X4 * (A4 - T3) * (R3 / R4)) / X5;
 
 	const Q1 = (X6 * R3 * 2.718 ** (R3 * H) + X4 * (A4 - T3)) / X5;
 	const Q2 = -(X6 * R4 * 2.718 ** (R3 * H) + X4 * (A4 - T3) * (R4 / R3)) / X5;
-
-	console.log("checkpoint");
-	console.log(M1);
-	console.log(M2);
-
-	console.log(R3);
-	console.log(Q2);
-	console.log(B);
-	console.log(A4);
-	console.log(T0);
-
-	console.log("calculating temps");
-	console.log(M1);
-	console.log(R3);
-	console.log(Q1);
-	console.log(R4);
-	console.log(A4);
-	console.log(B);
-	console.log(T0);
 
 	//final temperatures
 	const T4 = ["T4"];
@@ -314,42 +264,6 @@ function calculator() {
 		Heights.push(i);
 	}
 
-	console.log(T4);
-	console.log(T5);
-	console.log(T6);
-
-	// table part
-
-	// var TTT = [];
-	// TTT.push(T4);
-	// TTT.push(T5);
-	// TTT.push(T6);
-	// TTT.push(Heights);
-
-	// var div = document.querySelector("#div");
-	// var table = document.createElement("table");
-	// var p = document.createElement("p");
-
-	// for (let k = 0; k < TTT.length; k++) {
-	// 	var tr = document.createElement("tr");
-
-	// 	for (let j = 0; j < TTT[k].length; j++) {
-	// 		var td = document.createElement("td");
-	// 		td.innerHTML = TTT[k][j];
-
-	// 		tr.appendChild(td);
-	// 	}
-
-	// 	p.innerHTML = counter;
-
-	// 	table.appendChild(tr);
-	// 	div.appendChild(p);
-	// 	div.appendChild(table);
-	// }
-	// counter = counter + 1;
-
-	//adding K_agr
-
 	let sum = 0;
 	T4.shift();
 	for (i = 0; i < T4.length; i++) {
@@ -357,10 +271,6 @@ function calculator() {
 	}
 	let average = sum / T4.length;
 	k_agr = 1 + (1.4 * 100) / ((C2) * average)
-
-	console.log("T4 new = " + T4);
-	console.log("sum = " + sum);
-	console.log("KAGR = " + k_agr);
 
 	const X_new = (k_agr * K2 * D) / 2;
 	const X1_new = ((((k_agr ** 2) * (K ** 2) * (D ** 2)) / 4) + K2 * K1 * D) ** 0.5;
@@ -394,10 +304,6 @@ function calculator() {
 			X4_new * (A4_new - T3) * (R4_new / R3_new)
 		) / X5_new;
 
-	console.log("m1 = " + M1_new)
-	console.log("m2 = " + M2_new)
-	console.log("q1 = " + Q1_new)
-	console.log("q2 = " + Q2_new)
 
 	var T4_new = ["T4"];
 	var T5_new = ["T5"];
@@ -492,9 +398,29 @@ function calculator() {
 		options: {
 			title: {
 				display: true,
-				text: 'Распределение температур раствора в скважине определенной высоты'
+				text: 'Распределение температур раствора в скважине заданной глубины'
 			}
 		}
 	});
-}
 
+	const mech_speed = 5
+	const res_point_height = 200
+	const full_circulation_time = mech_speed * H
+
+	for (let dynamical_h = 0; dynamical_h <= H; dynamical_h += 5) {
+		//  на каждом шаге (текущая глубина) получаем массив с температурами по трубе и массив по кольцу
+		// массивы с температурами добавляем в итоговый массив =>
+		// получаем двойной массив с температурами (кольца / трубы) для каждой конечной
+		// глубины (т.к разные темп в зависимости от глубины)
+		// например [ [температуры для 20м], [температуры для 40м] ]
+		// при этом температуры одной и той же точки для 20м и 40м скважины различны
+		// берем координату точки которая нас интересует 
+		// перебираем внутренние массивы, где глубина точки = индекс массива
+		// индекс считаем по шагу (для 200м при 5м шаге = 200/5 = 40 шаг => 39 элемент, тк индекс 1 эл-та = 0)
+		// * если элемента не существует = пропускаем шаг ?
+		// если элемент существует => записываем индекс в доп.массив точки 
+		// массив точки содержит температуры точки в различное время углубления
+		// изображаем изменение темп во времени 
+		// при t=0 до t-конеч => график не из начала
+	}
+}
