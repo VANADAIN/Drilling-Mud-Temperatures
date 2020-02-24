@@ -72,3 +72,7 @@ select {
 	-webkit-border-radius: 9px 9px 9px 9px;
 	border-radius: 9px 9px 9px 9px;
 }
+
+canvas {
+	padding-top: 10px;
+}
