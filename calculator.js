@@ -438,9 +438,9 @@ function chart(one, sec, th, number) {
 
 function point() {
 
-	// const mech_speed = 5
-	// const res_point_height = 200
-	// const full_circulation_time = mech_speed * H
+	const mech_speed = 10
+	var res_point_height = 200
+	var full_circulation_time = mech_speed * H
 
 	const consumption = document.getElementById("consumption").value;
 	const Q = Number(consumption);
@@ -521,13 +521,15 @@ function point() {
 	const frequency = document.getElementById("frequency").value;
 	const N1 = Number(frequency);
 
+	// step from input for point
+
 
 	// ! массивы для точки
 	const total_up = []
 	const total_down = []
 
 	// повторяем код калькулятора в цикле с параметрами точки 
-	for (let dynamical_h = 0; dynamical_h <= H; dynamical_h += 5) {
+	for (let dynamical_h = 0; dynamical_h <= H; dynamical_h += mech_speed) {
 
 		const Pi = 3.1415926;
 
@@ -663,7 +665,6 @@ function point() {
 		const T6 = ["Gradient"];
 		const Heights = ["Heights"];
 
-		// в цикле step = 5
 		for (let i = 0; i <= dynamical_h; i = i + H1) {
 			const t4 =
 				M1 * (2.718 ** (R3 * i)) + Q1 * (2.718 ** (R4 * i)) - A4 + B + T0 + S * i;
@@ -727,7 +728,7 @@ function point() {
 		const T6_new = ["Gradient"];
 		var Heights_new = ["Heights"];
 
-		for (let i = 0; i <= dynamical_h; i = i + 5) {
+		for (let i = 0; i <= dynamical_h; i = i + H1) {
 			const t4_new =
 				M1_new * 2.718 ** (R3_new * i) +
 				Q1_new * 2.718 ** (R4_new * i) -
@@ -759,12 +760,32 @@ function point() {
 
 	}
 
-	console.log(total_down)
-	console.log(total_up)
+	// количество внутренних массивов = количество умещения скоростей в глубину скважины (в ч.)
+	// get point values from total array
+
+	const point_t_down = []
+	const point_t_up = []
+
+
+	// на каждой из глубин получаем индекс статической глубины точки
+	var index = ((res_point_height / H1).toFixed())
+
+	for (let j = 0; j < total_down.length; j++) {
+		if (total_down[j][index]) {
+			point_t_down.push(total_down[j][index])
+		}
+	}
+
+	for (let j = 0; j < total_up.length; j++) {
+		if (total_up[j][index]) {
+			point_t_up.push(total_up[j][index])
+		}
+	}
+
 
 }
 
-function point_chart() {
+// function point_chart() {
 
-}
+// }
 
