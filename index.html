@@ -29,7 +29,7 @@
 
 			<div class="form">
 				<div class="label">Глубина скважины (м):</div>
-				<input class="form-control" type="number" id="depth" value="2000" />
+				<input class="form-control" type="number" id="depth" value="500" />
 			</div>
 
 			<div class="form">
@@ -171,7 +171,7 @@
 
 			<div class="form">
 				<div class="label">Шаг глубины для расчета температуры (м) :</div>
-				<input class="form-control" type="number" id="depth_step" value="100" />
+				<input class="form-control" type="number" id="depth_step" value="50" />
 			</div>
 
 			<div class="form">
@@ -179,25 +179,57 @@
 				<input class="form-control" type="number" id="frequency" value="314" />
 			</div>
 
-			<div class="form">
-				<button id="final" onclick="calculator()">Расчет</button>
-			</div>
-
-
-			<div class="form">
-				<button id="clearer" onclick="clearTables()">Очистить</button>
-			</div>
-
-
 		</div>
+
+		<div class="form">
+			<button id="final" onclick="calculator()">Расчет</button>
+		</div>
+
+
+		<div class="form">
+			<button id="clearer" onclick="clearTables()">Очистить</button>
+		</div>
+
 	</div>
+
 
 	<div id="div"></div>
-	<!-- <canvas id="line-chart" width="800" height="450"></canvas> -->
 
-	<div class="form">
-		<button id="clearer" onclick="point()">Точка</button>
+	<div class="grid-sec">
+		<div class="section-2">
+
+			<div class="form">
+				<div class="label">Глубина точки (м)</div>
+				<input class="form-control" type="number" id="point_depth" value="200" />
+			</div>
+
+			<div class="form">
+				<div class="label">Механическая скорость бурения (м/ч)</div>
+				<input class="form-control" type="number" id="mech_speed" value="10" />
+			</div>
+
+			<div class="form">
+				<div class="label">Шаг времени (ч)</div>
+				<input class="form-control" type="number" id="time_step" value="10" />
+			</div>
+
+		</div>
+
+		<div></div>
+		<div></div>
+
+		<div class="form">
+			<button id="clearer" onclick="point()">Температуры точки</button>
+		</div>
+
+		<div class="form">
+			<button id="clearer" onclick="point_clear()">Очистить</button>
+		</div>
+
 	</div>
+
+	<div id="point"></div>
+
 
 	<script type="text/javascript" src="./node_modules/chart.js/dist/Chart.js"></script>
 	<script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>

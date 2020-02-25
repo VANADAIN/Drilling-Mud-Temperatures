@@ -1,4 +1,5 @@
 var counter = 1;
+var point_counter = 1;
 
 function calculator() {
 	// getter part
@@ -307,9 +308,8 @@ function calculator() {
 		) / X5_new;
 
 
-	var T4_new = ["T4"];
-	var T5_new = ["T5"];
-	const T6_new = ["Gradient"];
+	var T4_new = ["Inner"];
+	var T5_new = ["Outer"];
 	var Heights_new = ["Heights"];
 
 	for (let i = 0; i <= H; i = i + H1) {
@@ -332,9 +332,6 @@ function calculator() {
 		const tf5_new = t5_new.toFixed(2);
 		T5_new.push(tf5_new);
 
-		const t6_new = T0 + S * i;
-		const tf6_new = t6_new.toFixed(2);
-		T6_new.push(tf6_new);
 
 		Heights_new.push(i);
 	}
@@ -342,7 +339,6 @@ function calculator() {
 	var TTT_new = [];
 	TTT_new.push(T4_new);
 	TTT_new.push(T5_new);
-	TTT_new.push(T6_new);
 	TTT_new.push(Heights_new);
 
 	// rendering table
@@ -353,6 +349,7 @@ function table(arr, hei, four, five) {
 	var div = document.querySelector("#div");
 	var table = document.createElement("table");
 	var p = document.createElement("p");
+	p.id = "text"
 	var canvas = document.createElement("canvas");
 	var str_counter = counter.toString()
 	canvas.id = 'line-chart' + str_counter
@@ -411,6 +408,7 @@ function chart(one, sec, th, number) {
 			}]
 		},
 		options: {
+			responsive: true,
 			title: {
 				display: true,
 				text: 'Распределение температур раствора в скважине заданной глубины'
@@ -438,9 +436,15 @@ function chart(one, sec, th, number) {
 
 function point() {
 
-	const mech_speed = 10
-	var res_point_height = 200
-	var full_circulation_time = mech_speed * H
+	// step from input for point
+	const speed = document.getElementById("mech_speed").value;
+	const mech_speed = Number(speed);
+
+	const hp = document.getElementById("point_depth").value;
+	const res_point_height = Number(hp);
+
+	const time = document.getElementById("time_step").value;
+	const time_step = Number(time);
 
 	const consumption = document.getElementById("consumption").value;
 	const Q = Number(consumption);
@@ -520,9 +524,6 @@ function point() {
 
 	const frequency = document.getElementById("frequency").value;
 	const N1 = Number(frequency);
-
-	// step from input for point
-
 
 	// ! массивы для точки
 	const total_up = []
@@ -766,9 +767,13 @@ function point() {
 	const point_t_down = []
 	const point_t_up = []
 
+	var final_time = (H / mech_speed).toFixed()
 
-	// на каждой из глубин получаем индекс статической глубины точки
-	var index = ((res_point_height / H1).toFixed())
+	var begin_time = (res_point_height / mech_speed).toFixed()
+
+
+	// на каждой из глубин получаем индекс глубины точки
+	var index = ((res_point_height / H1)).toFixed()
 
 	for (let j = 0; j < total_down.length; j++) {
 		if (total_down[j][index]) {
@@ -782,10 +787,97 @@ function point() {
 		}
 	}
 
+	var str_point_counter = point_counter.toString()
 
+	var point_ts = []
+
+	for (let n = 0; n <= final_time; n = n + time_step) {
+		if (n >= begin_time) {
+			point_ts.push(n)
+		}
+	}
+
+
+	console.log(begin_time)
+	console.log(final_time)
+	console.log(total_down)
+
+	point_table(point_t_down, point_t_up, str_point_counter)
+	point_chart(point_ts, point_t_down, point_t_up, str_point_counter)
+
+	point_counter = point_counter + 1
 }
 
-// function point_chart() {
+function point_table(down, up, number) {
 
-// }
+	const point_table_arr = []
+	const point_table_down = down.slice()
+	const point_table_up = up.slice()
+
+	point_table_down.unshift("Inner")
+	point_table_up.unshift("Outer")
+
+	point_table_arr.push(point_table_down)
+	point_table_arr.push(point_table_up)
+
+	var point_div = document.querySelector("#point");
+
+	var point_table = document.createElement("table");
+	var pp = document.createElement("p");
+	pp.id = "text"
+
+	pp.innerHTML = number
+	point_div.appendChild(pp)
+
+	for (let n = 0; n < point_table_arr.length; n++) {
+		var p_tr = document.createElement("tr");
+
+		for (let j = 0; j < point_table_arr[n].length; j++) {
+			var p_td = document.createElement("td");
+			p_td.innerHTML = point_table_arr[n][j];
+
+			p_tr.appendChild(p_td);
+		}
+		point_table.appendChild(p_tr);
+	}
+
+	point_div.appendChild(point_table);
+}
+
+function point_chart(time, four, five, number) {
+
+	var point_div = document.querySelector("#point");
+	var point_canvas = document.createElement("canvas");
+
+	point_canvas.id = 'point-chart' + number
+	point_canvas.setAttribute("width", "800")
+	point_canvas.setAttribute("height", "450")
+
+	point_div.appendChild(point_canvas)
+
+	new Chart(document.getElementById("point-chart" + number), {
+		type: 'line',
+		data: {
+			labels: time,
+			datasets: [{
+				data: four,
+				label: "Температура внутри бурильной колонны",
+				borderColor: "#3e95cd",
+				fill: false
+			}, {
+				data: five,
+				label: "Температура кольцевого пространства",
+				borderColor: "#8e5ea2",
+				fill: false
+			}]
+		},
+		options: {
+			responsive: true,
+			title: {
+				display: true,
+				text: 'Изменение температуры заданной точки во времени'
+			}
+		}
+	});
+}
 
