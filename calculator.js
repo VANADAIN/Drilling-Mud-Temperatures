@@ -98,7 +98,7 @@ function calculator() {
 	} else if (J == 3) {
 		var a = 0;
 	} else {
-		var a = 0;
+		var a = 2;
 	}
 
 	// сечение внутри труб
@@ -193,7 +193,7 @@ function calculator() {
 
 	//  lambda part
 
-	if (J == 1) {
+	if (J1 == 1) {
 		var W1 = 0.3164 / (R1_sec ** 0.25);
 	} else {
 		if (R1_sec <= 1200) {
@@ -210,8 +210,7 @@ function calculator() {
 	const I2 = P3 / (9.81 * R * 1.03 * H);
 
 	// коэф теплопередачи через стенку трубы
-	const log = Math.log(D1 / D2) / Math.log(10);
-	const K1 = 1 / (1 / (A0 * D2) + 0.5 * (log / L0) + 1 / (A0_sec * D1));
+	const K1 = 1 / (1 / (A0 * D2) + 0.5 * (Math.log10(D1 / D2) / L0) + 1 / (A0_sec * D1));
 
 	// критерий био
 	const B1 = A0_sec * (D / (2 * L2));
@@ -234,15 +233,15 @@ function calculator() {
 	const R4 = X2 * (X - X1);
 
 	const A4 = (1 / X4) * (S - 9.81 * (T1 / C1));
-	const B = (9.81 * G * (I1 + I2)) / (K2 * Pi * D);
-	const X5 = R3 * 2.718 ** (R3 * H) - R4 * 2.718 ** (R4 * H);
+	const B = 9.81 * G * ((I1 + I2) / (K2 * Pi * D));
+	const X5 = R3 * (2.718 ** (R3 * H)) - R4 * (2.718 ** (R4 * H));
 	const X6 = T1 - T0 + A4 - B;
 
 	const M1 = -(X6 * R4 * 2.718 ** (R4 * H) + X4 * (A4 - T3)) / X5;
 	const M2 = (X6 * R3 * 2.718 ** (R4 * H) + X4 * (A4 - T3) * (R3 / R4)) / X5;
 
-	const Q1 = (X6 * R3 * 2.718 ** (R3 * H) + X4 * (A4 - T3)) / X5;
-	const Q2 = -(X6 * R4 * 2.718 ** (R3 * H) + X4 * (A4 - T3) * (R4 / R3)) / X5;
+	const Q1 = (X6 * R3 * (2.718 ** (R3 * H)) + X4 * (A4 - T3)) / X5;
+	const Q2 = -(X6 * R4 * (2.718 ** (R3 * H)) + X4 * (A4 - T3) * (R4 / R3)) / X5;
 
 	//final temperatures
 	const T4 = ["T4"];
@@ -256,7 +255,7 @@ function calculator() {
 		const tf4 = t4.toFixed(2);
 		T4.push(tf4);
 
-		const t5 = M2 * 2.718 ** (R3 * i) + Q2 * 2.718 ** (R4 * i) + B + T0 + S * i;
+		const t5 = M2 * (2.718 ** (R3 * i)) + Q2 * (2.718 ** (R4 * i)) + B + T0 + S * i;
 		const tf5 = t5.toFixed(2);
 		T5.push(tf5);
 
@@ -344,6 +343,7 @@ function calculator() {
 	// rendering table
 	table(TTT_new, Heights_new, T4_new, T5_new)
 }
+
 
 function table(arr, hei, four, five) {
 	var div = document.querySelector("#div");
