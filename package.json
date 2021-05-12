@@ -11,7 +11,7 @@
   "author": "Marchuk Ivan",
   "license": "ISC",
   "dependencies": {
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "jquery": "^3.4.1"
   },
   "devDependencies": {
